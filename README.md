@@ -1,6 +1,6 @@
-README.md
+# README.md
 
-This document addresses some issues for setting up k8s clusters in AWS China regions using kops. It has been tested for kops 1.14.0 and k8s 1.14.6.
+This document addresses some issues for setting up k8s clusters in AWS China regions using kops. It has been tested for kops 1.14.0 and k8s 1.14.6/1.14.8.
 
 Read https://github.com/nwcdlabs/kops-cn and https://github.com/kubernetes/kops/blob/master/docs/aws-china.md first.
 
@@ -31,3 +31,16 @@ spec:
 ```
 
 * `kops update cluster --yes`.
+
+## Upgrade cluster
+
+* Mirror the docker images required by the new k8s version
+
+  - k8s.gcr.io/kube-apiserver
+  - k8s.gcr.io/kube-controller-manager
+  - k8s.gcr.io/kube-proxy
+  - k8s.gcr.io/kube-scheduler
+
+## Troubleshooting
+
+* Check logs on master: /var/log/syslog
